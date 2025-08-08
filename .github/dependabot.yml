@@ -1,14 +1,31 @@
 version: 2
 updates:
+  # Frontend dependencies
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/frontend"
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "deps"
+      prefix: "deps(frontend)"
     labels:
       - "dependencies"
-      - "security"
+      - "frontend"
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+
+  # Backend dependencies (for when backend requirements.txt is added)
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "deps(backend)"
+    labels:
+      - "dependencies"
+      - "backend"
     open-pull-requests-limit: 5
     rebase-strategy: "auto"
     allow:
