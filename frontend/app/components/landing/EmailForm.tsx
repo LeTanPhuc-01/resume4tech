@@ -23,6 +23,7 @@ export const EmailForm = () => {
 
     const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
     const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+    
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
@@ -119,24 +120,31 @@ export const EmailForm = () => {
                     ref={formRef}
                     onSubmit={handleSubmit}
                 >
-                    <Input
-                        placeholder="youremail@abc.com"
-                        className="bg-muted/50 dark:bg-muted/80"
-                        aria-label="Email address"
-                        required
-                        name="email"
-                        type="email"
-                        id="email"
-                        autoComplete="email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        title="Please enter a valid email address"
-                    />
-                    <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={RECAPTCHA_SITE_KEY}
-                    />
-                    <Button type="submit" disabled={isSubmitting}>{isSubmitting ? "Submitting..." : "Subscribe"}
-                    </Button>
+                    <div className="flex flex-col gap-4 flex-1">
+                        <Input
+                            placeholder="youremail@abc.com"
+                            className="bg-muted/50 dark:bg-muted/80"
+                            aria-label="Email address"
+                            required
+                            name="email"
+                            type="email"
+                            id="email"
+                            autoComplete="email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            title="Please enter a valid email address"
+                        />
+                        <div className="flex justify-center">
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                onLoad={() => console.log('ReCAPTCHA loaded')}
+                                onError={(error) => console.error('ReCAPTCHA error:', error)}
+                            />
+                        </div>
+                        <Button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? "Submitting..." : "Subscribe"}
+                        </Button>
+                    </div>
                 </form>
                 {error && (
                     <p className="text-center mt-4" style={{ color: "red" }}>
