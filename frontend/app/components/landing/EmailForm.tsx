@@ -1,4 +1,4 @@
-// import { Form } from "react-router";
+import { Form } from "react-router";
 import { useState, type FormEvent, useRef, useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import Confetti from "react-confetti";
@@ -23,7 +23,7 @@ export const EmailForm = () => {
 
     const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
     const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-    
+
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
@@ -115,7 +115,7 @@ export const EmailForm = () => {
                     Enter your email for early access, totally safe. Trust me bro.
                 </p>
 
-                <form
+                <Form
                     className="flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
                     ref={formRef}
                     onSubmit={handleSubmit}
@@ -136,6 +136,7 @@ export const EmailForm = () => {
                         <div className="flex justify-center">
                             <ReCAPTCHA
                                 ref={recaptchaRef}
+                                size="normal"
                                 sitekey={RECAPTCHA_SITE_KEY}
                                 onLoad={() => console.log('ReCAPTCHA loaded')}
                                 onError={(error) => console.error('ReCAPTCHA error:', error)}
@@ -145,7 +146,7 @@ export const EmailForm = () => {
                             {isSubmitting ? "Submitting..." : "Subscribe"}
                         </Button>
                     </div>
-                </form>
+                </Form>
                 {error && (
                     <p className="text-center mt-4" style={{ color: "red" }}>
                         {error}

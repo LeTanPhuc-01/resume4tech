@@ -118,7 +118,7 @@ export const Navbar = () => {
                                     ))}
                                     <a
                                         rel="noreferrer noopener"
-                                        href="https://github.com/leoMirandaa/shadcn-landing-page.git"
+                                        href="https://github.com/LeTanPhuc-01/resume4tech"
                                         target="_blank"
                                         className={`w-[110px] border ${buttonVariants({
                                             variant: "secondary",

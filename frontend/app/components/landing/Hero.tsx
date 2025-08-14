@@ -5,6 +5,17 @@ import { TwitterLogoIcon } from "./Icons";
 import resume_img from "/resume_img.png";
 import { SquigglyArrow } from "./Icons";
 export const Hero = () => {
+    //Behavior for button
+    const scrollToEmailForm = () => {
+        const emailForm = document.getElementById('emailform');
+        if (emailForm) {
+            emailForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     return (
         <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10 isolate">
             <div className="text-center lg:text-start space-y-6 lg:-mt-48">
@@ -27,7 +38,12 @@ export const Hero = () => {
                 </p>
 
                 <div className="space-y-4 md:space-y-0 md:space-x-4">
-                    <Button className="w-full md:w-1/3">Get Started</Button>
+                    <Button
+                        onClick={scrollToEmailForm}
+                        className="w-full md:w-1/3"
+                    >
+                        Get Started
+                    </Button>
 
                     <a
                         rel="noreferrer noopener"
