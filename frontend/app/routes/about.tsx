@@ -1,5 +1,14 @@
+import type { Route } from "./+types/about";
 import aboutpng from "/about.png"
-import {Link} from "react-router"
+import { Link } from "react-router"
+
+export function meta({ }: Route.MetaArgs) {
+    return [
+        { title: "About - Resume4Tech" },
+        { name: "description", content: "About Resume4Tech - Helping junior developers land their dream jobs" },
+    ];
+}
+
 export default function About() {
     return (
         <div

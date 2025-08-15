@@ -8,7 +8,9 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+
 import { ThemeProvider } from "~/components/landing/theme-provider";
+import { Navbar } from "./components/landing/NavBar";
 import "./app.css";
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -44,6 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <ThemeProvider>
+      <Navbar />
       <Outlet />
     </ThemeProvider>
   );

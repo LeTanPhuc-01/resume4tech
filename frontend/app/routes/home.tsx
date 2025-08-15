@@ -3,7 +3,6 @@ import { Hero } from "~/components/landing/Hero";
 import { Cta } from "~/components/landing/CTA";
 import { Footer } from "~/components/landing/Footer";
 import { EmailForm } from "~/components/landing/EmailForm";
-import { Navbar } from "~/components/landing/NavBar";
 import { HowItWorks } from "~/components/landing/HowItWorks";
 import { TheHurdle } from "~/components/landing/TheHurdle";
 import { FAQ } from "~/components/landing/FAQ";
@@ -20,7 +19,6 @@ export function meta({ }: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <TheHurdle />
       {/* <About /> */}
