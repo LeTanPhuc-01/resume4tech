@@ -1,24 +1,18 @@
-
-import { LockClosedIcon } from "@radix-ui/react-icons"
-
-type ResumeDropboxProps = {
-    className?: string,
-};
-
-export const ResumeDropbox = () => {
-    return (
-        <>
-            <h1>Hello this is the dashboard/</h1>
-        </>
-    );
-}
-
+"use client";
+import { ResumeDropbox } from "~/components/dashboard/ResumeDropbox";
+import { useState } from "react";
 // This is the main component for the dashboard route
 export default function Dashboard() {
+    const [hasAddedResume, setHasAddedResume] = useState(false);
+    const onFileUrlChange = (fileUrl: string) => {
+        setHasAddedResume(Boolean(fileUrl));
+    };
     return (
         <>
             <h1>Dashboard Page</h1>
-            <ResumeDropbox />
+            <ResumeDropbox
+                onFileUrlChange={onFileUrlChange}
+                className="mt-8" />
         </>
     );
 }
