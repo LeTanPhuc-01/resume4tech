@@ -1,4 +1,5 @@
 import { LockClosedIcon, Cross2Icon } from "@radix-ui/react-icons"
+import { Button } from "../ui/button";
 import addpdf from "/addpdf.svg"
 import { cn } from "~/lib/utils";
 // import { useNavigate } from "react-router";
@@ -74,15 +75,18 @@ export const ResumeDropbox = ({
         >
             <div
                 className={cn(
-                    "text-center space-y-3",
+                    "text-center space-y-3", isHoveredOnDropzone && "opacity-20"
                 )}
             >
-                <img
-                    src={addpdf}
-                    className="mx-auto h-14 w-14"
-                    alt="Add pdf"
-                    aria-hidden="true"
-                />
+                <label htmlFor="fileInput" className="cursor-pointer">
+                    <img
+                        src={addpdf}
+                        className="mx-auto h-14 w-14"
+                        alt="Add pdf"
+                        aria-hidden="true"
+                    />
+                </label>
+
 
                 {!hasFile ? (
                     <>
@@ -95,7 +99,7 @@ export const ResumeDropbox = ({
                         </p>
                         <p className="flex text-sm text-gray-500">
                             <LockClosedIcon className="mr-1 mt-1 h-3 w-3 text-gray-400" />
-                            File data is used locally and never leaves your browser
+                            File data is secured through guardrailed pipelines and deleted after processing.
                         </p>
                     </>
                 ) : (
@@ -105,7 +109,7 @@ export const ResumeDropbox = ({
                         </div>
                         <button
                             type="button"
-                            className="outline-theme-blue rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                            className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                             title="Remove file"
                             onClick={onRemove}
                         >
@@ -118,11 +122,12 @@ export const ResumeDropbox = ({
                         <>
                             <label
                                 className={cn(
-                                    "within-outline-theme-purple cursor-pointer rounded-full px-6 pb-2.5 pt-2 font-semibold shadow-sm bg-primary",
+                                    "cursor-pointer rounded-full px-6 pb-2.5 pt-2 shadow-sm bg-primary",
                                 )}
                             >
                                 Browse file
                                 <input
+                                    id="fileInput"
                                     type="file"
                                     className="sr-only"
                                     accept=".pdf"
@@ -130,21 +135,20 @@ export const ResumeDropbox = ({
                                 />
                             </label>
                             {hasNonPdfFile && (
-                                <p className="mt-6 text-red-400">Only pdf file is supported</p>
+                                <p className="mt-6 text-red-400">Only .pdf file is supported. Please convert resume to PDF and try again.</p>
                             )}
                         </>
                     ) : (
                         <>
-                            <button
+                            <Button
                                 type="button"
                                 className="btn-primary"
                             // onClick={}
                             >
                                 Import and Continue <span aria-hidden="true">→</span>
-                            </button>
+                            </Button>
                             <p className={cn(" text-gray-500 mt-6")}>
-                                Note: Import works best on
-                                single column resume
+                                Note: Use single column resume to get the best result.
                             </p>
                         </>
                     )}

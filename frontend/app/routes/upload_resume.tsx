@@ -8,11 +8,13 @@ export default function Dashboard() {
         setHasAddedResume(Boolean(fileUrl));
     };
     return (
-        <>
-            <h1>Dashboard Page</h1>
-            <ResumeDropbox
-                onFileUrlChange={onFileUrlChange}
-                className="mt-8" />
-        </>
+        <main>
+            <div className="mx-auto mt-14 max-w-3xl rounded-md border border-gray-200 px-10 py-10 text-center shadow-md">
+                <h1>Dashboard Page</h1>
+                <ResumeDropbox
+                    onFileUrlChange={onFileUrlChange}
+                    className="mt-8" />
+            </div>
+        </main>
     );
 }
