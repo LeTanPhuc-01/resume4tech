@@ -1,1 +1,150 @@
+# ====================
+# OS Generated Files
+# ====================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# ====================
+# Node.js & Frontend
+# ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Output of 'npm pack'
+*.tgz
+
+# Optional REPL history
+.node_repl_history
+
+# ====================
+# React Router v7
+# ====================
+.react-router/
+/build/
+/dist/
+
+# ====================
+# Build outputs
+# ====================
+/coverage/
+*.tsbuildinfo
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ====================
+# Python & Backend
+# ====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# ====================
+# Environment Variables
+# ====================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# ====================
+# Database Files
+# ====================
+*.db
+*.sqlite
+*.sqlite3
+
+# ====================
+# IDE & Editor Files
+# ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ====================
+# Docker
+# ====================
+.dockerignore
+docker-compose.override.yml
+
+# ====================
+# Logs & Runtime Data
+# ====================
+*.log
+logs/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ====================
+# Temporary Files
+# ====================
+tmp/
+temp/
+.tmp/
+.cache/
